@@ -1,0 +1,22 @@
+
+Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
+$ git log --oneline --graph --all
+*   d8d4f97 (HEAD -> master, origin/master) Merge branch 'feature-borrow-book'
+|\
+| *   0aade25 (origin/feature-borrow-book, feature-borrow-book) Merge branch 'master' into feature-borrow-book
+| |\
+| * | db73391 Implement borrow book
+* | |   a893b28 Merge branch 'feature-genre-report'
+|\ \ \
+| |_|/
+|/| |
+| * | 3eaa0a0 (origin/feature-genre-report, feature-genre-report) Implement genre report
+| |/
+* / 49bfb0c Update borrow message on master
+|/
+* 08c53d7 (origin/feature-search-books, feature-search-books) Implement book search
+* d19de36 Add starter code
+* e201205 Initial commit
+
+Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
+$

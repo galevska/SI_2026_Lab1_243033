@@ -1,0 +1,183 @@
+1. Git е успешно инсталиран и проверен преку Git Bash со командата git --version:
+Elena@DESKTOP-C61P37J MINGW64 ~ $ git --version 
+git version 2.53.0.windows.2
+
+GitHub профил:
+https://github.com/galevska
+
+2. Default branch за нови репозиториуми е успешно променета на 'master'. По промената, сите нови GitHub репозиториуми ќе ја користат гранката 'master' како default branch.
+
+3. Креиран е репозиториум на GitHub со име SI_2026_Lab1_243033. Според барањата поставен е Private.
+
+4. На мојот локален компјутер е креиран директориум со mkdir SI_2026_Lab1_243033. Во директориумот е влезено со командата: cd SI_2026_Lab1_243033, потоа Git е иницијализиран со командата git init.
+
+$ mkdir SI_2026_Lab1_243033
+Elena@DESKTOP-C61P37J MINGW64 ~
+$ cd SI_2026_Lab1_243033
+Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033
+$ git init
+Initialized empty Git repository in C:/Users/Elena/SI_2026_Lab1_243033/.git/
+
+5. Чекор 5:
+Без ова поврзување локалниот Git не знае каде да праќа податоци, односно не е можно да се изврши push (испраќање на код на GitHub).
+Локалниот репозиториум е поврзан со оддалечениот репозиториум со командата:
+git remote add origin https://github.com/galevska/SI_2026_Lab1_243033.git
+Со ова се воспоставува врска помеѓу локалниот и remote репозиториумот.
+
+Проверката е направена со командата git remote -v.
+Output:
+origin  https://github.com/galevska/SI_2026_Lab1_243033.git (fetch)
+origin  https://github.com/galevska/SI_2026_Lab1_243033.git (push)
+
+6. Се креира README.md датотека во која се внесени име, презиме и број на индекс.
+Датотеката се додава во staging со командата:
+git add README.md
+
+Потоа се прави commit со порака:
+git commit -m "Initial commit"
+Со ова е зачувана првата верзија (commit) од репозиториумот со внесените податоци.
+
+7. Се презема дадениот Java код и се додава во локалниот репозиториум во датотека SI2026Lab1Main.java.
+Датотеката се додава во staging со командата:
+git add SI2026Lab1Main.java
+
+Потоа се прави commit со порака:
+git commit -m "Add starter code"
+Со ова е додаден почетниот Java код во локалниот репозиториум.
+
+8. Локалната гранка master се синхронизира со оддалечениот репозиториум со командата:
+git push -u origin master
+
+Output:
+branch 'master' set up to track 'origin/master'.
+Everything up-to-date
+
+Со ова локалниот и оддалечениот репозиториум се успешно синхронизирани.
+
+
+9. Во локалниот репозиториум е креирана нова гранка feature-search-books и е извршено префрлање на истата со командата:
+git checkout -b feature-search-books
+Со командата git branch се потврдува дека активната гранка е feature-search-books.
+
+10. Во гранката feature-search-books е имплементиран метод searchBookByTitle кој пребарува книга по наслов и враќа дали таква книга постои во библиотеката.
+Во main методот е додаден повик за тестирање на оваа функционалност.
+
+Извршени се следните Git команди:
+git add SI2026Lab1Main.java
+git commit -m "Implement book search"
+
+Со ова промените се зачувани во локалниот репозиториум.
+
+11. На GitHub е креиран Pull Request од feature-search-books кон master гранката со избирање на base: master и compare: feature-search-books и со клик на Create Pull Request.
+
+12. Гранката master е активирана со командата:
+	git checkout master
+Потоа е извршено спојување на гранката feature-search-books со командата:
+	git merge feature-search-books
+
+13. Спојувањето беше fast-forward.
+
+Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
+$ git merge feature-search-books
+Updating d19de36..08c53d7
+Fast-forward
+ SI2026Lab1Main.java | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+Излез од командата git log --oneline --graph --all:
+
+Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
+$ git log --oneline --graph --all
+* 08c53d7 (HEAD -> master, origin/feature-search-books, feature-search-books) Implement book search
+* d19de36 (origin/master) Add starter code
+* e201205 Initial commit
+
+14. Гранката master е синхронизирана со оддалечениот репозиториум со командата:
+git push 
+и го добив ова:
+Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
+$ git push
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/galevska/SI_2026_Lab1_243033.git
+   d19de36..08c53d7  master -> master
+
+15. Креирани се две нови гранки од master со командите:
+git checkout -b feature-borrow-book
+git checkout master
+git checkout -b feature-genre-report
+
+16. Прво е направено префрлување на гранката feature-borrow-book со командата:
+git checkout feature-borrow-book
+
+Потоа во IntelliJ е имплементиран метод за означување книга како позајмена според наслов. 
+Во методот е додадена проверка дали книгата веќе е позајмена и ако не е, се означува како позајмена и се печати пораката "Borrowed successfully".
+Дополнително, во main методот е додаден повик за тестирање на функционалноста.
+Измените се зачувани со команди:
+git add SI2026Lab1Main.java
+git commit -m "Implement borrow book"
+
+17. Прво се префрлив на гранката master со командата:
+git checkout master
+
+Во датотеката SI2026Lab1Main.java е променета пораката за успешно позајмување на книгата во:
+Book checked out
+
+Измените се зачувани со команди:
+git add SI2026Lab1Main.java
+git commit -m "Update borrow message on master"
+
+18. Префрлување на гранката feature-genre-report со командата:
+git checkout feature-genre-report
+
+Имплементиран е метод printBooksByGenre кој ги печати сите книги од даден жанр.
+Во main методот е додаден повик за тестирање на оваа функционалност.
+
+Измените се зачувани со команди:
+git add SI2026Lab1Main.java
+git commit -m "Implement genre report"
+
+19. Гранката feature-borrow-book е синхронизирана со оддалечениот репозиториум со командата:
+git push --set-upstream origin feature-borrow-book
+Потоа на GitHub е креиран pull request од гранката feature-borrow-book кон master.
+
+20. Синхронизација на гранката feature-genre-report со оддалечениот репозиториум е направена со командата:
+git push --set-upstream origin feature-genre-report
+Потоа на GitHub е креиран pull request од гранката feature-genre-report кон master.
+
+21. Додека бев на гранката feature-borrow-book, беше извршено спојување на гранката master во неа со командата:
+git merge master
+
+При спојувањето се појави конфликт во датотеката SI2026Lab1Main.java. Конфликтот беше решен рачно со избор на соодветна верзија од кодот, по што фајлот беше додаден со git add и merge процесот беше завршен со git commit.
+
+22. При спојувањето на гранките master и feature-borrow-book настана конфликт во датотеката SI2026Lab1Main.java. Конфликтот беше предизвикан од различни измени во ист дел од кодот.
+
+Конфликтот беше решен рачно со избор на една од верзиите и отстранување на конфликтните маркери. Потоа изменетата датотека беше додадена со git add и merge процесот беше завршен со git commit.
+
+Излез од командата git status по завршување на merge-от:
+On branch feature-borrow-book
+Your branch is ahead of 'origin/feature-borrow-book' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+23. Префрлување на гранката master и спојување на гранката feature-genre-report со командата:
+git merge feature-genre-report
+
+Спојувањето беше recursive merge бидејќи двете гранки имаат различни commit-и и измени. При спојувањето се појави конфликт во датотеката SI2026Lab1Main.java кој беше решен рачно со избор на соодветна верзија од кодот. Потоа конфликтот беше отстранет, фајлот беше додаден со git add и merge процесот беше завршен со git commit.
+
+24. Префрлување на гранката master и спојување на гранката feature-borrow-book со командата:
+git merge feature-borrow-book
+
+Спојувањето беше fast-forward бидејќи гранката feature-borrow-book веќе беше претходно споена во master. Поради тоа Git пријави дека нема нови промени за спојување (Already up to date) и не беше потребен нов merge commit.
+
+25. Синхронизација на гранката master со оддалечениот репозиториум беше извршена со командата:
+git push
+Со ова локалните commit-и од master гранката беа префрлени на оддалечениот репозиториум (GitHub).
+
+26. Во овој чекор беа додадени датотеките logs.txt и INDEX.txt во staging area со командата git add.
+Датотеката logs.txt ги содржи резултатите од командата git log --oneline --graph --all, со која се прикажува историјата на commit-и во репозиториумот.
+Датотеката INDEX.txt ја содржи целосната документација за сите извршени чекори при изработката на лабораториската вежба.
+Потоа беше извршен последен commit со порака "Final commit" со командата git commit -m "Final commit", со што сите конечни измени беа зачувани во локалниот репозиториум.
+
+27. Во овој чекор гранката master беше синхронизирана со оддалечениот репозиториум (GitHub) со командата git push.
+Со ова беа префрлени сите локални commit-и од гранката master на оддалечениот репозиториум, со што локалната и remote верзијата на проектот се усогласија.
