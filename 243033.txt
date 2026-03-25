@@ -1,5 +1,4 @@
 1. Git е успешно инсталиран и проверен преку Git Bash со командата git --version:
-Elena@DESKTOP-C61P37J MINGW64 ~ $ git --version 
 git version 2.53.0.windows.2
 
 GitHub профил:
@@ -7,16 +6,13 @@ https://github.com/galevska
 
 2. Default branch за нови репозиториуми е успешно променета на 'master'. По промената, сите нови GitHub репозиториуми ќе ја користат гранката 'master' како default branch.
 
-3. Креиран е репозиториум на GitHub со име SI_2026_Lab1_243033. Според барањата поставен е Private.
+3. Креиран е репозиториум на GitHub со име SI_2026_Lab1_243033.
 
 4. На мојот локален компјутер е креиран директориум со mkdir SI_2026_Lab1_243033. Во директориумот е влезено со командата: cd SI_2026_Lab1_243033, потоа Git е иницијализиран со командата git init.
 
 $ mkdir SI_2026_Lab1_243033
-Elena@DESKTOP-C61P37J MINGW64 ~
 $ cd SI_2026_Lab1_243033
-Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033
 $ git init
-Initialized empty Git repository in C:/Users/Elena/SI_2026_Lab1_243033/.git/
 
 5. Чекор 5:
 Без ова поврзување локалниот Git не знае каде да праќа податоци, односно не е можно да се изврши push (испраќање на код на GitHub).
@@ -77,7 +73,6 @@ git commit -m "Implement book search"
 
 13. Спојувањето беше fast-forward.
 
-Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
 $ git merge feature-search-books
 Updating d19de36..08c53d7
 Fast-forward
@@ -86,7 +81,6 @@ Fast-forward
 
 Излез од командата git log --oneline --graph --all:
 
-Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
 $ git log --oneline --graph --all
 * 08c53d7 (HEAD -> master, origin/feature-search-books, feature-search-books) Implement book search
 * d19de36 (origin/master) Add starter code
@@ -95,8 +89,6 @@ $ git log --oneline --graph --all
 14. Гранката master е синхронизирана со оддалечениот репозиториум со командата:
 git push 
 и го добив ова:
-Elena@DESKTOP-C61P37J MINGW64 ~/SI_2026_Lab1_243033 (master)
-$ git push
 Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 To https://github.com/galevska/SI_2026_Lab1_243033.git
    d19de36..08c53d7  master -> master
@@ -181,3 +173,30 @@ git push
 
 27. Во овој чекор гранката master беше синхронизирана со оддалечениот репозиториум (GitHub) со командата git push.
 Со ова беа префрлени сите локални commit-и од гранката master на оддалечениот репозиториум, со што локалната и remote верзијата на проектот се усогласија.
+
+28. Направен е fork од репозиториумот SI_2026_Lab1_203043 од корисникот markopetrov1 со користење на копчето "Fork" на GitHub. Со ова е креирана копија од репозиториумот во мојот GitHub профил.
+
+29. Fork-от од репозиториумот SI_2026_Lab1_203043 беше клониран на локалниот компјутер со командата:
+git clone https://github.com/galevska/SI_2026_Lab1_203043.git
+
+30. Во локалниот fork репозиториум беше креирана нова гранка со име 243033-library-update со командата:
+git checkout -b 243033-library-update
+Со ова се креира нова гранка и автоматски се врши префрлување на неа, со што понатамошните измени ќе се извршуваат во оваа гранка.
+
+31. Во локалниот fork репозиториум беше креирана нова датотека со име 243033.txt со користење на командата:
+touch 243033.txt
+Потоа датотеката беше отворена и во неа во првата линија е запишано името и презимето, а во втората линија факултетскиот e-mail.
+
+32. Во постоечка Java датотека беше додадена кратка коментар линија со текст "Updated by 243033".
+
+33. Направен е commit со порака "Add fork contribution" со кој беа зачувани направените измени во локалниот fork репозиториум. Commit-от ги вклучува измените направени во Java датотеката и додадената текстуална датотека.
+
+34.Гранката 243033-library-update беше синхронизирана со оддалечениот fork репозиториум со користење на командата git push origin 243033-library-update, при што локалните commit-и беа успешно префрлени на GitHub и гранката стана достапна во remote репозиториумот. 
+
+35. Креиран е Pull Request од гранката 243033-library-update од fork репозиториумот кон гранката master на оригиналниот репозиториум.
+
+36. Името на Pull Request-от е поставено во формат 243033-FORK.
+
+37. 37. Во описот на Pull Request-от се внесени две линии: 
+Elena Galevska
+Fork contribution for lab 1
